@@ -1,0 +1,8 @@
+fond
+bouton1Jhold
+bouton1Jfree
+bouton2Jhold
+bouton2Jfree
+alien
+joueur
+projectile

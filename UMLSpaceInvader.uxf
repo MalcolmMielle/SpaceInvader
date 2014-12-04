@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>9</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1710</x>
+      <y>972</y>
+      <w>486</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Alien
+--
+
+--
++Alien()
++Alien(pt : int, p : const Point&amp;)
++Alien(pt : int, cor : const Corps&amp;, canon : Point, comp : const Comportement*)
++~Alien()
++shoot(vector&lt;Projectile&gt;&amp;) : Projectile
++affiche() : void
++collide(const Projectile_alien&amp;) : bool
++paint(G : Graphics&amp;)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1548</x>
+      <y>423</y>
+      <w>306</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>Corps
+--
+#_forme_l : vector&lt;Forme*&gt;
+#_pointeur : int
+--
++Corps()
++Corps(const vec_f vector&lt;Forme*&gt;&amp;, pointeur : int)
++~Corps()
++getAllForme() : const vector&lt;Forme*&gt;&amp;
++getForme(f : const Forme&amp;) const : int
++getForme(i : int) const : Forme&amp;
++collide(corps : const Corps&amp;) const : bool
++erase() : void
++setForme(f : vector&lt;Forme*&gt;&amp;) : void
++move(p : const Point&amp;) : void
++affiche() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1224</x>
+      <y>207</y>
+      <w>189</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Point
+--
+-_x : int
+-_y : int
+--
++Point()
++Point(x : int, y : int)
++getX() : int
++getY() : int
++setX(x : int) : void
++setY(y : int) : void
++operator=(p : Point&amp;) : void
++operator==(p : Point&amp;) : bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1386</x>
+      <y>216</y>
+      <w>161</w>
+      <h>53</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>144;27;27;36</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>954</x>
+      <y>1215</y>
+      <w>189</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>/Comportement/
+--
+
+--
+/+generique(Jeu&amp;) : Point*/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1530</x>
+      <y>216</y>
+      <w>189</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>/Forme/
+--
+#_centre : Point
+--
++Forme()
++Forme(cen : const Point&amp;)
++~Forme()
++getCentre() : const Point&amp;
++setCentre(p : const Point&amp;) : void
++move(p : const Point&amp;) : void
++collide(const Forme&amp; f) const : bool
++collide(const Rectangle&amp; f) const : bool
++affiche() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1584</x>
+      <y>369</y>
+      <w>44</w>
+      <h>71</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;54;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1431</x>
+      <y>0</y>
+      <w>270</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Rectangle
+--
+#_longueur : int
+#_largueur : int
+--
++Rectangle()
++Rectangle(lar : int, lon : int, Point cen)
++~Rectangle()
++getLargeur() : T
++getLongueur() : T
++collide(f : const Forme&lt;T&gt;&amp;) const : bool
++collide(f : const Rectangle&amp;) const : bool
++affiche() const : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1539</x>
+      <y>153</y>
+      <w>44</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;63;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1584</x>
+      <y>666</y>
+      <w>315</w>
+      <h>306</h>
+    </coordinates>
+    <panel_attributes>/Protagoniste/
+--
+#pt_vie
+#_corps : Corps
+#_canon : Point
+--
++Protagoniste()
++Protagoniste(pt : int, cor : const Corps&amp;, canon : const Point&amp;)
++Protagoniste(pt : int, p : const Point&amp;)
++~Protagoniste
++getCorps() : const Corps&amp;
++getCanon() : const Point&amp;
++getVie() : int
++setVie(p : int) : void
++minusVie(p : int) : void
+/+shoot() : Projectile/
++collide(p : const Projectile&amp;) : bool
++collide(p : const Projectile_simple&amp;) : bool
++collide(p : const Projectile_alien&amp;) : bool
++move(p : const Point&amp;) : void
++collide(const Projectile &amp;) : bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1701</x>
+      <y>918</y>
+      <w>45</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;54;27;54</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1332</x>
+      <y>1260</y>
+      <w>378</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Friend
+--
+#_comp : Comportement
+--
++Friend() 
++Friend(pt : T, corps : Corps, canon : Point, comp : Comportement)
++getComportement() : const Comportement&amp;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1395</x>
+      <y>1206</y>
+      <w>44</w>
+      <h>71</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;27;54</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1116</x>
+      <y>1260</y>
+      <w>233</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>216;63;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>900</x>
+      <y>1350</y>
+      <w>369</w>
+      <h>243</h>
+    </coordinates>
+    <panel_attributes>Comportement_Alien
+--
+#_sens : int
+#_compte : int
+#_Vmax : int
+#_nstill : int
+#_nmax : int
+--
++ComportementAlien(max : int)
++~ComportementAlien
++generic(Jeu&amp;) : Point*
++getSens() : int
++get_nmax() : int
++get _Vmax() : int
++maxDistance(aliens : const vector&lt;Alien*&gt;) : T</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>954</x>
+      <y>1278</y>
+      <w>44</w>
+      <h>89</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;27;72</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1242</x>
+      <y>558</y>
+      <w>243</w>
+      <h>207</h>
+    </coordinates>
+    <panel_attributes>/Projectile/
+--
+-_corps : Corps
+-_etat : int
+-_puissance
+--
++Projectile()
++~Projectile()
++getCorps() const : const Corps&amp;
++changeEtat() : void
+/+move() : void/
++getPuissance() : int
+/+collide(cor : const Projectile&amp;) : bool/
+/+collide(cor : const Protagoniste&amp;) : bool/
+/+collide(cor : const Obstacle&amp;) : bool/
++affiche() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1287</x>
+      <y>441</y>
+      <w>216</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Obstacle
+--
+-_corps : Corps
+--
++Obstacle()
++Obstacle(cor : const Corps&amp;)
++Obstacle(const Point&amp; p)
++getCorps() : const Corps&amp;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1620</x>
+      <y>621</y>
+      <w>45</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;45;27;45</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1458</x>
+      <y>549</y>
+      <w>107</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;90;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1476</x>
+      <y>441</y>
+      <w>89</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;72;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>963</x>
+      <y>405</y>
+      <w>341</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;279;27;279;81;324;81</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>963</x>
+      <y>423</y>
+      <w>296</w>
+      <h>242</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;243;27;243;225;279;225</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>963</x>
+      <y>468</y>
+      <w>638</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;234;27;234;315;621;333</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1746</x>
+      <y>144</y>
+      <w>549</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>Graphics
+--
++repImage : repertoireImage
++repSprite : repertoireSprite
++it : repertoireImage::iterator
++its : repertoireSprite::iterator
++app : sf::RenderWindow
+-largeur : unsigned int
+-longeur : unsigned int
+-resolution : int
+--
+Graphics()
++Police(font : sf::Font&amp;, nom std::map&lt;std::string, repertoireImage : sf::Image&gt;&amp;) : void
++Loadbibli(repertoire Imag : repertoireImage&amp;) : void
++LoadSprite(repSprite : repertoireSprite&amp;, nomfich : std::string) : void
++LoadImage(cle : std::string) : sf::Image
++getLargeure() : unsigned int
++getLoneure() : unsigned int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>360</x>
+      <y>144</y>
+      <w>630</w>
+      <h>657</h>
+    </coordinates>
+    <panel_attributes>Jeu
+--
+#_projliste : vector&lt;Projectile*&gt;
+#_obsliste : vector&lt;Obstacle*&gt;
+#_alienlist : vector&lt;Alien*&gt;
+#_joulist : vector&lt;Joueur*&gt;
+#_longeur : T
+#_largeur : T
+#comp : Comportement
+--
++Jeu()
++Jeu(lon : T, lar : T, vit : T, nmax : int)
++Jeu(lon : T, lar : T, projlist vector&lt;Projectile*&gt;, obslist vector&lt;Obstacle*&gt;, perslist vector&lt;Protagoniste*&gt;)
++~Jeu()
++getAllAlien() : vector&lt;Alien*&gt;&amp;
++getAllObs() : vector&lt;Obstacle*&gt;&amp;
++getAllProj() : vector&lt;Projectile*&gt;&amp;
++getAllJoueur() : vector&lt;Joueur*&gt;&amp;
++get(const Projectile* p) : int
++get(const Obstacle* p) : int
++get(const Alien* p) : int
++get(const Joueur* p) : int
++getLon() : int
++getLar() : int
++eraseAlien(i : int) : void
++eraseJoueur(i : int) : void
++eraseObs(i : int) : void
++eraseProj(i : int) : void
++erase(Projectile* p) : void
++erase(Obstacle* p ) : void
++erase(Alien* p ) : void
++erase(Joueur* p) : void
++add(Projectile* p) : void
++add(Obstacle* p) : void
++add(Alien* p) : void
++add(Joueur* p) : void
++getPro(i : int) : Projectile&amp;
++getObs(i : int) : Obstacle&amp;
++getAlien(i : int) : Alien&amp;
++getJoueur(i : int) : Joueur&amp;
++deplaceAlien() : void
++deplaceProj() : void
++destroyProj() : void
++getCollision() : voids
++shootAlien() : void
++getCollision() : void
++affiche() : void
++shootAlien() : void
++paint(G : Graphics&amp;) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>900</x>
+      <y>819</y>
+      <w>297</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>Projectile_simple
+--
++Projectile_simple()
++Projectile_simple(etat : int, p : const Point&amp;)
++move() : void
++collide(cor : Projectile&amp;) : bool
++collide(cor : Protagoniste&amp;) : bool
++collide(cor : Obstacle&amp;) : bool
++affiche() const : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1170</x>
+      <y>738</y>
+      <w>107</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>90;27;90;108;27;108</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1089</x>
+      <y>126</y>
+      <w>324</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>AddP
+--
+operator(){x : const Point&amp;, y : const Point&amp;) : Point</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1584</x>
+      <y>945</y>
+      <w>44</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;27;135</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1278</x>
+      <y>1080</y>
+      <w>351</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>Joueur
+--
+--
++Joueur()
++Joueur(pt : int, cor : const Corps&amp;, canon : const Point&amp;)
++Joueur(pt : int, p : const Point&amp;)
++shootMissile(pro : vector&lt;Projectile*&gt;&amp;)
++shootFlamme(pro : vector&lt;Projectile*&gt;&amp;)
++shoot(pro : vector&lt;Projectile*&gt;&amp;)
++affiche() : void
++paint(G : Graphics&amp;) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>2007</x>
+      <y>1179</y>
+      <w>189</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Boss
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1863</x>
+      <y>1089</y>
+      <w>161</w>
+      <h>134</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;27;54;144;117</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1341</x>
+      <y>990</y>
+      <w>44</w>
+      <h>107</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;27;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1386</x>
+      <y>990</y>
+      <w>638</w>
+      <h>251</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;27;72;288;72;288;171;621;234</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1278</x>
+      <y>936</y>
+      <w>279</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>_Shootspe_
+--
+--
++Shootspe()
++shootMissile(pro : vector&lt;Projectile*&gt;&amp;)
++shootFlamme(pro : vector&lt;Projectile*&gt;&amp;)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>594</x>
+      <y>774</y>
+      <w>404</w>
+      <h>458</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;27;396;387;396;387;441</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>0</x>
+      <y>171</y>
+      <w>279</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>Environnement
+--
++nbJoueur : int
+--
++initJeu() : Jeu*
++deplace(Jeu&amp; jeu, G : Graphics&amp;) : void
++mainGame(G : Graphics&amp;) : void
++paint(jeu : Jeu&amp;, G : Graphics)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>891</x>
+      <y>990</y>
+      <w>297</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>Projectile_alien
+--
++Projectile_alien()
++Projectile_alien(etat : int, p : const Point&amp;)
++collide(cor : const Projectile&amp;) : bool
++collide(cor : const Protagoniste&amp;) : bool
++collide(cor : const Obstacle&amp;) : bool
++collide(pro : const Projectile_simple&amp;) : bool
++collide(al :const Alien&amp;) : bool
++affiche() const : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1044</x>
+      <y>927</y>
+      <w>44</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;27;63</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1746</x>
+      <y>0</y>
+      <w>342</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>Menu
+--
+sprite : repertoireSprite
+it : repertoireSprite::iterator
+--
++Menu()
++eventMouse(input : const sf::Input&amp;, G : Graphics&amp;)
++drawfixe(G : Graphics&amp;)
++MoveSprite(nomSprite : std::string, x : float, y : float)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1611</x>
+      <y>621</y>
+      <w>98</w>
+      <h>62</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;45;81;27</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,35 @@
+  _________                          
+ /   _____/__________    ____  ____  
+ \_____  \\____ \__  \ _/ ___\/ __ \ 
+ /        \  |_> > __ \\  \__\  ___/ 
+/_______  /   __(____  /\___  >___  >
+        \/|__|       \/     \/    \/ 
+.___                         .___                   
+|   | _______  _______     __| _/___________  ______
+|   |/    \  \/ /\__  \   / __ |/ __ \_  __ \/  ___/
+|   |   |  \   /  / __ \_/ /_/ \  ___/|  | \/\___ \ 
+|___|___|  /\_/  (____  /\____ |\___  >__|  /____  >
+         \/           \/      \/    \/           \/ 
+
+
+Projet de C++ développé par Malcolm Mielle et Antoine LeFaucheux.
+
+Ce jeu de space invaders est un remix du jeu mondialement connu du même nom.
+Vous êtes un vaisseau, des aliens vous tire des missiles dessus et vous pouvez vous même répliquer.
+La grade différence avec le jeu initial et le côté "hardcore" gaming de ce Space Invaders.
+
+Ici, les aliens tire très souvent et vous pouvez répliquer avec autant de force. Vous possédez 20 points de vies. Le partie se termine lorsque tous les aliens ou tout les humain sont morts.
+
+Vous pouvez vous déplacer avec les flèches directionnelles et tirer avec la barre espace.
+Si vous jouez à deux l'autre joueur joue avec : d, h et g.
+
+___________________________
+
+Nous avons essayé de rendre le jeu le plus facilement extensible. C'est pourquoi il existe sur l'UML des classes non développé tel que les boss ou ne servant pour l'instant à pas grand chose comme le ShootSpe.
+Nous avons aussi essayé de rendre le jeu le plus "général" possible. Cependant, nous voulions créer une classe Graphics abstraite suivi de plusieurs moteurs graphiques (2D, 3D...) mais nous n'en avons pas eu le temps.
+
+Dans la même idée, nous avons commencé à créer une IA ami (la Classe "Friend") mais ne l'avons implémenté dans le jeu car nous n'avons pas eu le temps de lui faire un comportement. Il nous suffisait de créer une classe dérivée de Comportement faite pour l'IA ami et de créer une méthode dépaceFriend dans la classe Jeu afin de faire une IA ami fonctionnelle.
+
+Le comportement des Aliens est uand à lui placé dans la Classe jeu car ils possède tous le même comportement. Il effectue tous leurs mouvements en sumiltanée et donc une comportement de type "communiste" (donc général à Jeu) nous a semblé le plus efficace.
+
+
